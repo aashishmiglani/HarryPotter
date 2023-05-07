@@ -1,24 +1,50 @@
 import logo from './logo.svg';
 import './App.css';
+import { fetchThunkData } from "./Store/dataSlice"
+import { useDispatch, useSelector } from "react-redux"
+import MainPage from './Components/MainPage';
+import CharacterData from './Components/CharacterData';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
+import Home from './Pages/Home';
+import CharacterDetails from './Pages/CharacterDetails';
+
+
 
 function App() {
+
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <BrowserRouter>
+        <Routes>
+
+          <Route path='/' element={<Home />} />
+          <Route path='/:id' element={<CharacterDetails />} />
+
+
+        </Routes>
+
+
+
+
+      </BrowserRouter>
+      {/* <button onClick={() => { dispatch(fetchThunkData()) }} >CLICK ME</button> */}
+      {/* <MainPage /> */}
+
+
+    </>
   );
 }
 
